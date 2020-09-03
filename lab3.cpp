@@ -28,7 +28,7 @@ const char *lab3_sequential_threads()
 
 DWORD WINAPI thread_a(LPVOID lpParam)
 {
-    UNREFERENCED_PARAMETER(lpParam);
+
 
     for (int i = 0; i < LETTERS_COUNT; ++i)
     {
@@ -42,7 +42,7 @@ DWORD WINAPI thread_a(LPVOID lpParam)
 
 DWORD WINAPI thread_b(LPVOID lpParam)
 {
-    UNREFERENCED_PARAMETER(lpParam);
+
 
     for (int i = 0; i < LETTERS_COUNT; ++i)
     {
@@ -58,7 +58,7 @@ DWORD WINAPI thread_b(LPVOID lpParam)
 
 DWORD WINAPI thread_c(LPVOID lpParam)
 {
-    UNREFERENCED_PARAMETER(lpParam);
+
 
     for (int i = 0; i < LETTERS_COUNT; ++i)
     {
@@ -74,7 +74,7 @@ DWORD WINAPI thread_c(LPVOID lpParam)
 
 DWORD WINAPI thread_d(LPVOID lpParam)
 {
-    UNREFERENCED_PARAMETER(lpParam);
+
 
     for (int i = 0; i < LETTERS_COUNT; ++i)
     {
@@ -137,7 +137,7 @@ DWORD WINAPI thread_e(LPVOID lpParam)
 
 DWORD WINAPI thread_f(LPVOID lpParam)
 {
-    UNREFERENCED_PARAMETER(lpParam);
+
 
     for (int i = 0; i < LETTERS_COUNT; ++i)
     {
@@ -164,7 +164,7 @@ DWORD WINAPI thread_f(LPVOID lpParam)
 
 DWORD WINAPI thread_g(LPVOID lpParam)
 {
-    UNREFERENCED_PARAMETER(lpParam);
+
 
     for (int i = 0; i < LETTERS_COUNT; ++i)
     {
@@ -178,7 +178,7 @@ DWORD WINAPI thread_g(LPVOID lpParam)
 
 DWORD WINAPI thread_h(LPVOID lpParam)
 {
-    UNREFERENCED_PARAMETER(lpParam);
+
 
     for (int i = 0; i < LETTERS_COUNT; ++i)
     {
@@ -192,7 +192,7 @@ DWORD WINAPI thread_h(LPVOID lpParam)
 
 DWORD WINAPI thread_i(LPVOID lpParam)
 {
-    UNREFERENCED_PARAMETER(lpParam);
+
 
     for (int i = 0; i < LETTERS_COUNT; ++i)
     {
@@ -217,7 +217,7 @@ DWORD WINAPI thread_i(LPVOID lpParam)
 
 DWORD WINAPI thread_k(LPVOID lpParam)
 {
-    UNREFERENCED_PARAMETER(lpParam);
+
 
     for (int i = 0; i < LETTERS_COUNT; ++i)
     {
@@ -253,7 +253,7 @@ DWORD WINAPI thread_k(LPVOID lpParam)
 
 DWORD WINAPI thread_m(LPVOID lpParam)
 {
-    UNREFERENCED_PARAMETER(lpParam);
+
 
     for (int i = 0; i < LETTERS_COUNT; ++i)
     {
@@ -278,7 +278,7 @@ DWORD WINAPI thread_m(LPVOID lpParam)
 
 DWORD WINAPI thread_n(LPVOID lpParam)
 {
-    UNREFERENCED_PARAMETER(lpParam);
+
     for (int i = 0; i < LETTERS_COUNT; ++i)
     {
         WaitForSingleObject(block, INFINITE);
@@ -291,7 +291,7 @@ DWORD WINAPI thread_n(LPVOID lpParam)
 
 DWORD WINAPI thread_p(LPVOID lpParam)
 {
-    UNREFERENCED_PARAMETER(lpParam);
+
 
     for (int i = 0; i < LETTERS_COUNT; ++i)
     {
