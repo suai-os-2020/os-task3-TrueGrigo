@@ -1,32 +1,19 @@
-/*
-ОС ЛР3
-Вариант 19
-Граф № 19
-Асинхронные потоки dhikm
-Синхронизированные потоки bcdf
-*/
 
 #include <iostream>
 #include <windows.h>
 #include "lab3.h"
 
 #define THREADS_COUNT 13
-// Количество букв для одного цикла потока
 #define LETTERS_COUNT 3
-// Номер графа
-#define GRAPH_ID 19
 
 DWORD ThreadID;
-// Массив с идентификаторами ротоков
 HANDLE thread[THREADS_COUNT];
-// Мьютекс
 HANDLE block;
-// Семафоры
 HANDLE smphr_b, smphr_c, smphr_d, smphr_f, smphr_section_done, smphr_next_section;
 
 unsigned int lab3_thread_graph_id()
 {
-    return GRAPH_ID;
+    return 19;
 }
 
 const char *lab3_unsynchronized_threads()
@@ -316,23 +303,7 @@ DWORD WINAPI thread_p(LPVOID lpParam)
     return 0;
 }
 
-void initialization()
-{
-    // Инициализируем мьютекс
-    block = CreateMutex(NULL, FALSE, NULL);
-    if (block == NULL)
-        std::cerr << "Mutex init failed" << std::endl;
-
-    // Инициализируем семафоры
-    smphr_b = CreateSemaphore(NULL, 1, 1, NULL);
-    smphr_c = CreateSemaphore(NULL, 0, 1, NULL);
-    smphr_d = CreateSemaphore(NULL, 0, 1, NULL);
-    smphr_f = CreateSemaphore(NULL, 0, 1, NULL);
-    smphr_section_done = CreateSemaphore(NULL, 0, 3, NULL);
-    smphr_next_section = CreateSemaphore(NULL, 0, 3, NULL);
-}
-
-void run_graph()
+void init()
 {
     /* 1 */
 
@@ -450,8 +421,22 @@ void run_graph()
     std::cout << std::endl;
 }
 
-void res_free()
+
+int lab3_init()
 {
+    // Инициализируем мьютекс
+    block = CreateMutex(NULL, FALSE, NULL);
+    if (block == NULL)
+        std::cerr << "Mutex init failed" << std::endl;
+
+    // Инициализируем семафоры
+    smphr_b = CreateSemaphore(NULL, 1, 1, NULL);
+    smphr_c = CreateSemaphore(NULL, 0, 1, NULL);
+    smphr_d = CreateSemaphore(NULL, 0, 1, NULL);
+    smphr_f = CreateSemaphore(NULL, 0, 1, NULL);
+    smphr_section_done = CreateSemaphore(NULL, 0, 3, NULL);
+    smphr_next_section = CreateSemaphore(NULL, 0, 3, NULL);
+    init();
     CloseHandle(block);
     CloseHandle(smphr_section_done);
     CloseHandle(smphr_next_section);
@@ -461,12 +446,5 @@ void res_free()
     CloseHandle(smphr_f);
     for (int i = 0; i < THREADS_COUNT; ++i)
         CloseHandle(thread[i]);
-}
-
-int lab3_init()
-{
-    initialization();
-    run_graph();
-    res_free();
     return 0;
 }
